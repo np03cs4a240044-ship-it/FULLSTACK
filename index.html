@@ -3,55 +3,104 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ADITYA ADHIKARI</title>
-  <link rel="stylesheet" href="./portfolio-aditya/css/style.css">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header id="main-header" class="header">
-    <h1 class="title">MY PORTFOLIO</h1>
+  <!-- Hero Section with Video Background -->
+  <header id="hero">
+    <video autoplay loop muted id="video-background">
+      <source src="mountain.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <nav class="navbar">
+      <span class="logo">My Portfolio</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation" id="menu-button">
+        ☰
+      </button>
+    </nav>
+
+    <div class="hero-content">
+      <h1>Aditya Adhikari</h1>
+      <p>STUDYING COMPUTER SCIENCE IN HERALD COLLEGE KATHMANDU</p>
+    </div>
   </header>
 
-  <nav id="main-nav" class="navigation">
-    <ul class="nav-list">
-      <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-      <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
-      <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-      <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+  
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am Aditya Adhikari. I was born on April 06, 2005 A.D. I am from Sindhuli, Nepal but currently living in Duwakot, Bhaktapur. Currently I am studying in Herald College Kathmandu with a major in Computer Science. I am son of Debendra Prasand Adhikari and Kumari Anjani Sharma and I have one elder sister too. From my childhood I’ve been very keen on playing online and physical games. I used to be a naughty kid but as I’ve grown up I’ve turned into an introvert and shy guy. Though I am an introvert, I love talking to other people and making them happy.</p>
+  </section>
+
+  
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>HTML5 & CSS3</li>
+      <li>JavaScript (ES6+)</li>
+      <li>Python & Java</li>
     </ul>
-  </nav>
-
-  <section id="about" class="section about">
-    <h2 class="section-title">About Me</h2>
-    <p class="section-text">I am Aditya Adhikari. I was born on April 06, 2005 A.D. I am from Sindhuli, Nepal but currently living in Duwakot, Bhaktapur. Currently I am studying in Herald College Kathmandu with a major in Computer Science. I am son of Debendra Prasand Adhikari and Kumari Anjani Sharma and I have one elder sister too. From my childhood I’ve been very keen on playing online and physical games. I used to be a naughty kid but as I’ve grown up I’ve turned into an introvert and shy guy. Though I am an introvert, I love talking to other people and making them happy.</p>
   </section>
 
-  <section id="education" class="section education">
-    <h2 class="section-title">Education History</h2>
-    <p class="section-text">From my childhood I was very interested in studies and I used to love getting knowledge and education about various new things that I didn't know. I used to be one of the toppers in my class during my school days. As educational qualification is very important in our life. I completed my school from Everest English School, Bhaktapur and I completed my +2 from Global College of Management. </p>
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Project 1</h3>
+        <p>Description of project.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project 2</h3>
+        <p>Description of project.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project 3</h3>
+        <p>Description of project.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project 4</h3>
+        <p>Description of project.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="projects" class="section projects">
-    <h2 class="section-title">Projects</h2>
-    <p class="section-text">THESE ARE THE PROJECTS I HAVE DONE.</p>
-    <img src="C:\Users\Acer\Documents\FULLSTACK\portfolio-aditya\images\project.jpg" width="500">
-  </section>
+  
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name"><br>
 
-  <section id="contact" class="section contact">
-    <h2 class="section-title">Contact Me</h2>
-    <form class="contact-form">
-      <label for="name" class="form-label">Name:</label><br>
-      <input type="text" id="name" name="name" class="form-input"><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email"><br>
 
-      <label for="email" class="form-label">Email:</label><br>
-      <input type="email" id="email" name="email" class="form-input"><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message"></textarea><br>
 
-      <label for="message" class="form-label">Message:</label><br>
-      <textarea id="message" name="message" class="form-textarea"></textarea><br>
-
-      <button type="submit" class="form-button">Submit</button>
+      <button type="submit">Submit</button>
     </form>
+    <!-- Feedback message div -->
+    <div id="form-message"></div>
   </section>
 
+  
+  <footer>
+    <p>&copy; 2025 Aditya Adhikari. All rights reserved.</p>
+  </footer>
+
+  <!-- Optional Audio Element -->
+  <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+
+  <!-- Link to JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
