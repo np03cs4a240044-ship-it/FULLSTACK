@@ -1,53 +1,34 @@
-// NAV MENU
+/* MOBILE MENU TOGGLE */
 const menuButton = document.getElementById("menu-button");
-const navLinks = document.getElementById("nav-links");
+const navLinks = document.querySelector(".nav-links");
 
 menuButton.addEventListener("click", () => {
-    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+    navLinks.classList.toggle("open");
+
+    const isOpen = navLinks.classList.contains("open");
+    menuButton.setAttribute("aria-expanded", isOpen);
+    menuButton.innerHTML = isOpen ? "✕" : "☰";
 });
 
-// FADE-UP
-const fadeElements = document.querySelectorAll(".fade-up");
+/* CONTACT FORM HANDLING */
+const contactForm = document.getElementById("contact-form");
+const messageDiv = document.getElementById("form-message");
 
-const fadeInOnScroll = () => {
-    fadeElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 80) {
-            el.classList.add("show");
-        }
-    });
-};
+contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-window.addEventListener("scroll", fadeInOnScroll);
-fadeInOnScroll();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const msg = document.getElementById("message").value.trim();
 
-// FORM MESSAGE
-const form = document.getElementById("contact-form");
-const status = document.getElementById("form-status");
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    // Get values from inputs
-    const nameInput = document.getElementById("name").value.trim();
-    const emailInput = document.getElementById("email").value.trim();
-    const messageInput = document.getElementById("message").value.trim();
-
-    // Validation check
-    if (nameInput === "" || emailInput === "" || messageInput === "") {
-        status.textContent = "⚠ Please fill up the form first!";
-        status.style.color = "red";
-        status.style.marginTop = "10px";
-        return; // Stop here, don’t show success
+    if (!name || !email || !msg) {
+        messageDiv.textContent = "Please fill all fields.";
+        messageDiv.style.color = "red";
+        return;
     }
 
-    // Success message
-    status.textContent = "✔ Message sent successfully!";
-    status.style.color = "cyan";
-    status.style.marginTop = "10px";
+    messageDiv.textContent = "Thank you! I will get back to you soon.";
+    messageDiv.style.color = "lightgreen";
 
-    form.reset();
-
-    // Clear message after 3 seconds
-    setTimeout(() => status.textContent = "", 3000);
+    contactForm.reset();
 });
